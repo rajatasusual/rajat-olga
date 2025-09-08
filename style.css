@@ -1,0 +1,927 @@
+:root {
+  /* Color Palette */
+  --robin-egg-blue: #00c2d1;
+  --cosmic-latte: #fff8e8;
+  --wenge: #5d576b;
+  --jasmine: #fcd581;
+  --coral-pink: #fe938c;
+  
+  /* Color variations for depth */
+  --robin-egg-blue-light: rgba(0, 194, 209, 0.1);
+  --robin-egg-blue-hover: #00a8b5;
+  --cosmic-latte-dark: #f5eedc;
+  --wenge-light: rgba(93, 87, 107, 0.1);
+  --jasmine-light: rgba(252, 213, 129, 0.2);
+  --coral-pink-light: rgba(254, 147, 140, 0.15);
+  
+  /* Typography - Art Nouveau inspired */
+  --font-heading: 'Cormorant Garamond', serif;
+  --font-decorative: 'Cinzel', serif;
+  --font-body: 'Libre Baskerville', serif;
+  
+  /* Spacing & Layout */
+  --section-padding: 5rem 0;
+  --container-max-width: 1200px;
+  --border-radius: 20px;
+  --ornament-size: 1.2rem;
+  
+  /* Art Nouveau Shadows */
+  --art-nouveau-shadow: 0 10px 30px rgba(93, 87, 107, 0.15);
+  --elegant-shadow: 0 5px 20px rgba(0, 194, 209, 0.1);
+  --ornate-shadow: 0 8px 25px rgba(252, 213, 129, 0.2);
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.7;
+  color: var(--wenge);
+  background: var(--cosmic-latte);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* language selector dropdown */
+#language-selector {
+  background-color: var(--robin-egg-blue);
+  color: var(--cosmic-latte);
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Art Nouveau Card Base */
+.art-nouveau-card-base {
+  background: var(--cosmic-latte);
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  position: relative;
+  border: 3px solid var(--jasmine);
+  box-shadow: var(--art-nouveau-shadow);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+
+.art-nouveau-card-base:before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: var(--border-radius);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.art-nouveau-card-base:hover:before {
+  opacity: 1;
+}
+
+.art-nouveau-card-base:hover {
+  transform: translateY(-10px) rotate(1deg);
+  box-shadow: var(--ornate-shadow);
+}
+
+/* Section Distinct Backgrounds */
+.section-distinct {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background Gradients for Each Section */
+.gradient-bg-1 {
+  background: linear-gradient(135deg, var(--cosmic-latte) 0%, var(--jasmine-light) 50%, var(--coral-pink-light) 100%);
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(135deg, var(--cosmic-latte) 0%, var(--coral-pink-light) 100%);
+}
+
+.gradient-bg-3 {
+  background: linear-gradient(135deg, var(--robin-egg-blue-light) 0%, var(--cosmic-latte) 100%);
+}
+
+.gradient-bg-4 {
+  background: linear-gradient(135deg, var(--wenge-light) 0%, var(--jasmine-light) 100%);
+}
+
+.gradient-bg-5 {
+  background: linear-gradient(135deg, var(--jasmine-light) 0%, var(--coral-pink-light) 50%, var(--robin-egg-blue-light) 100%);
+}
+
+.gradient-bg-6 {
+  background: linear-gradient(135deg, var(--wenge-light) 0%, var(--robin-egg-blue-light) 100%);
+}
+
+.gradient-bg-7 {
+  background: linear-gradient(135deg, var(--coral-pink-light) 0%, var(--cosmic-latte) 100%);
+}
+
+.gradient-bg-8 {
+  background: linear-gradient(135deg, var(--wenge) 0%, var(--robin-egg-blue) 100%);
+}
+
+/* Elegant Text Utility */
+.elegant-text {
+  font-family: var(--font-body);
+  color: var(--wenge);
+  opacity: 0.9;
+}
+
+/* Elegant Heading Utility */
+.elegant-heading {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--wenge);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+/* Ornament Base Utility */
+.ornament-base {
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--coral-pink);
+  z-index: 1;
+  animation: float 6s ease-in-out infinite;
+}
+
+.ornament-base.top {
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ornament-base.bottom {
+  bottom: 1rem;
+  right: 1.5rem;
+}
+
+.ornament-base.ornament-1 { top: 10%; left: 10%; animation-delay: 0s; }
+.ornament-base.ornament-2 { top: 20%; right: 15%; animation-delay: 1s; }
+.ornament-base.ornament-3 { bottom: 30%; left: 8%; animation-delay: 2s; }
+.ornament-base.ornament-4 { bottom: 15%; right: 12%; animation-delay: 3s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Section Base */
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--wenge);
+}
+
+h1 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 700;
+}
+
+h3 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--wenge);
+  opacity: 0.9;
+}
+
+/* Section Ornaments & Dividers */
+.section-ornament {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.flourish-divider {
+  font-size: 2rem;
+  color: var(--coral-pink);
+  letter-spacing: 1rem;
+  opacity: 0.7;
+}
+
+.heading-ornament {
+  font-size: 2.5rem;
+  color: var(--coral-pink);
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.7; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Art Nouveau Borders & Frames */
+.ornate-corners {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.corner {
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--robin-egg-blue);
+}
+
+.corner-tl { top: 0.5rem; left: 0.5rem; }
+.corner-tr { top: 0.5rem; right: 0.5rem; }
+.corner-bl { bottom: 0.5rem; left: 0.5rem; }
+.corner-br { bottom: 0.5rem; right: 0.5rem; }
+
+/* HERO SECTION - Golden Gradient Theme */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ornament-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  z-index: 2;
+  position: relative;
+  width: 100%;
+}
+
+.hero-text {
+  text-align: center;
+}
+
+.save-date {
+  font-family: var(--font-decorative);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  color: var(--robin-egg-blue);
+  margin-bottom: 1.5rem;
+  letter-spacing: 3px;
+}
+
+.couple-names {
+  font-family: var(--font-decorative);
+  color: var(--wenge);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.name-flourish {
+  color: var(--coral-pink);
+  font-size: 0.8em;
+  animation: pulse 4s ease-in-out infinite;
+}
+
+.wedding-dates {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  color: var(--robin-egg-blue);
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.wedding-location {
+  font-family: var(--font-body);
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  color: var(--wenge);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: var(--wenge);
+  font-style: italic;
+  opacity: 0.8;
+}
+
+/* Hero Image with Hover Effect */
+.hero-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image-frame {
+  position: relative;
+  width: 400px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.hero-illustration,
+.hero-photo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-photo-overlay {
+  opacity: 0;
+  transform: scale(1.1);
+}
+
+.hero-image-frame:hover .hero-illustration {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.hero-image-frame:hover .hero-photo-overlay {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Art Nouveau Portrait Styles */
+.art-nouveau-portrait,
+.real-photo {
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-frame,
+.photo-frame {
+  width: 100%;
+  height: 100%;
+  border: 4px solid var(--jasmine);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--cosmic-latte) 0%, var(--robin-egg-blue-light) 100%);
+  position: relative;
+  box-shadow: var(--art-nouveau-shadow);
+}
+
+.photo-frame {
+  border-color: var(--coral-pink);
+  background: linear-gradient(135deg, var(--coral-pink-light) 0%, var(--jasmine-light) 100%);
+}
+
+.portrait-silhouette,
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: calc(var(--border-radius) - 8px);
+  overflow: hidden;
+}
+
+.couple-silhouette {
+  width: 200px;
+  height: 300px;
+  background: linear-gradient(135deg, var(--wenge) 0%, var(--robin-egg-blue) 100%);
+  border-radius: 50% 50% 40% 40%;
+  position: relative;
+  opacity: 0.8;
+}
+
+.couple-silhouette:before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  height: 40%;
+  background: var(--cosmic-latte);
+  border-radius: 50%;
+  opacity: 0.3;
+}
+
+.floral-elements {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.flower {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--coral-pink);
+  animation: float 4s ease-in-out infinite;
+}
+
+.flower.f1 { top: 10%; left: 10%; animation-delay: 0s; }
+.flower.f2 { top: 80%; right: 15%; animation-delay: 1s; }
+.flower.f3 { bottom: 20%; left: 20%; animation-delay: 2s; }
+
+.couple-photo {
+  background: linear-gradient(135deg, var(--wenge) 0%, var(--coral-pink) 100%);
+}
+
+.photo-content {
+  font-family: var(--font-decorative);
+  font-size: 4rem;
+  color: var(--cosmic-latte);
+  font-weight: 600;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.photo-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  font-size: 1.5rem;
+  color: var(--jasmine);
+  animation: float 3s ease-in-out infinite;
+}
+
+.heart.h1 { top: 15%; right: 20%; animation-delay: 0.5s; }
+.heart.h2 { bottom: 15%; left: 15%; animation-delay: 1.5s; }
+
+/* WEDDING DETAILS SECTION - Coral & Cream Theme */
+.lead-text {
+  text-align: center;
+  font-size: 1.4rem;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  font-weight: 500;
+  color: var(--wenge);
+  line-height: 1.8;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+}
+
+.detail-item h3 {
+  color: var(--robin-egg-blue);
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.detail-item p {
+  text-align: center;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+/* VENUE SECTION - River Blue Theme */
+.venue-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.venue-text h3 {
+  color: var(--robin-egg-blue);
+  margin-bottom: 2rem;
+  font-size: 2rem;
+}
+
+.venue-features {
+  list-style: none;
+  padding: 0;
+}
+
+.venue-features li {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(93, 87, 107, 0.2);
+  font-size: 1.1rem;
+  position: relative;
+  padding-left: 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.venue-features li:before {
+  content: "❦";
+  position: absolute;
+  left: 0;
+  color: var(--coral-pink);
+  font-size: 1.2rem;
+}
+
+.venue-features li:hover {
+  color: var(--robin-egg-blue);
+  transform: translateX(10px);
+}
+
+/* Resort Image Styling */
+.venue-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.resort-image-frame {
+  padding: 0;
+  position: relative;
+}
+
+.resort-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: calc(var(--border-radius) - 3px);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(0, 194, 209, 0.3) 100%);
+  border-radius: calc(var(--border-radius) - 3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.resort-image-frame:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-ornament {
+  font-size: 3rem;
+  color: var(--cosmic-latte);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: none;
+}
+
+/* VIRTUAL TOUR SECTION */
+.tour-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.tour-wrapper {
+  position: relative;
+  min-height: 600px;
+  padding: 0;
+}
+
+.tour-wrapper iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: calc(var(--border-radius) - 4px);
+}
+
+.tour-description {
+  text-align: center;
+  margin-top: 2rem;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--wenge);
+}
+
+/* ACTIVITIES SECTION - Vibrant Multi-color Theme */
+.section-subtitle {
+  text-align: center;
+  font-size: 1.4rem;
+  margin-bottom: 4rem;
+  font-style: italic;
+  color: var(--wenge);
+  opacity: 0.9;
+}
+
+/* Resort Activities */
+.resort-activities {
+  margin-top: 4rem;
+}
+
+.resort-activities h3 {
+  text-align: center;
+  color: var(--robin-egg-blue);
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+.activity-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.activity-item h4 {
+  color: var(--wenge);
+  margin-bottom: 0.8rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.activity-item p {
+  margin: 0;
+  font-size: 1rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+/* TRAVEL EXTENSION SECTION - Deep Purple & Blue Theme */
+.travel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.travel-destination h3 {
+  color: var(--robin-egg-blue);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+.travel-destination p {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.travel-info {
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.flight-info {
+  font-size: 1.3rem;
+  color: var(--wenge);
+  font-weight: 500;
+  background: var(--jasmine-light);
+  padding: 1.5rem 3rem;
+  border-radius: 50px;
+  display: inline-block;
+  border: 2px solid var(--jasmine);
+  transition: all 0.3s ease;
+}
+
+.flight-info:hover {
+  background: var(--jasmine);
+  transform: translateY(-3px);
+  box-shadow: var(--ornate-shadow);
+}
+
+/* PERSONAL MESSAGE SECTION - Warm Coral & Cream Theme */
+.message-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.message-frame {
+  padding: 4rem;
+  text-align: center;
+  position: relative;
+}
+
+.message-text {
+  font-size: 1.3rem;
+  line-height: 1.9;
+  margin-bottom: 2.5rem;
+}
+
+.final-message {
+  font-weight: 600;
+  color: var(--robin-egg-blue);
+  font-size: 1.5rem;
+}
+
+/* FOOTER */
+.footer {
+  color: var(--cosmic-latte);
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.footer-ornament {
+  margin: 2rem 0;
+  font-size: 2rem;
+  color: var(--jasmine);
+  position: static;
+  animation: none;
+}
+
+.footer-signature {
+  font-family: var(--font-decorative);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  color: var(--cosmic-latte);
+}
+
+.footer-date {
+  font-size: 1.4rem;
+  opacity: 0.9;
+  color: var(--cosmic-latte);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .venue-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .activities-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 90vh;
+    padding: 2rem 0;
+  }
+  
+  .hero-image-frame {
+    width: 300px;
+    height: 400px;
+  }
+  
+  .section {
+    padding: 3rem 0;
+    min-height: auto;
+  }
+  
+  .tour-wrapper iframe {
+    height: 400px;
+  }
+  
+  .art-nouveau-card-base {
+    padding: 2rem;
+  }
+  
+  .message-frame {
+    padding: 2rem;
+  }
+  
+  .flourish-divider {
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+  }
+  
+  .heading-ornament {
+    font-size: 2rem;
+  }
+  
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .activity-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .hero-content {
+    gap: 2rem;
+  }
+  
+  .hero-image-frame {
+    width: 250px;
+    height: 320px;
+  }
+  
+  .details-grid,
+  .travel-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .tour-wrapper iframe {
+    height: 300px;
+  }
+  
+  .art-nouveau-card-base {
+    padding: 1.5rem;
+  }
+  
+  .message-text {
+    font-size: 1.1rem;
+  }
+  
+  .resort-image-frame {
+    width: 100%;
+  }
+  
+  .activity-image-card {
+    height: 250px;
+  }
+}
+
+/* ACCESSIBILITY & MOTION */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  .ornament-base,
+  .flower,
+  .heart {
+    animation: none;
+  }
+  
+  .heading-ornament,
+  .name-flourish {
+    animation: none;
+  }
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 3px solid var(--coral-pink);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth scrolling enhancement */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
