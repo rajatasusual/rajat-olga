@@ -20,35 +20,44 @@ const translations = {
     subtitle: "Cannot wait for you to join us!",
 
     personalNoteTitle: "A Personal Note",
-    personalNote1: "If you're reading this, it means we want you to be part of our special celebration...",
+    personalNote1: "If you're reading this, it means we want you to be part of our special celebration. We're keeping our wedding intimate - surrounded only by people we love and who we know will have the most wonderful time together. Most importantly, people we cherish are part of our lives.",
     personalNote2: "We'll be sending out formal RSVPs soon with all the detailed information you'll need.",
     personalNote3: "We can't wait to celebrate with you in beautiful Goa!",
 
     weddingDetailsTitle: "Wedding Details",
     weddingLead: "Goa in Jan 2026 end.",
     when: "When",
-    whenDetails: "25th & 26th January 2026. Feel free to arrive a day earlier...",
+    whenDetails: "25th & 26th January 2026.<br><br> Feel free to arrive a day earlier and stay a day later at the same discounted rates during our wedding celebration.",
     where: "Where",
-    whereDetails: "Mercure Devaaya Resort<br>Divar Island, Goa, India",
+    whereDetails: "Mercure Devaaya Resort. Divar Island, Goa, India",
     travelLogistics: "Travel & Logistics",
-    travelDetails: "Airports: Dabolim (GOI) ... Visa might be required",
-    plannerNote: "The planner will get in touch with you...",
+    travelDetails: `Airports:
+                            <br>• Dabolim (GOI): 45 minutes
+                            <br>• Manohar International (GOX): 1.5 hours
+                            <br><br>
+                            Transportation:
+                            <br>Resort transfers coordinated for all guests
+                            <br>Visa:
+                            <a href="https://indianvisaonline.gov.in/evisa/tvoa.html">E-visa</a> might be required
+                            (24-72 hours)`,
+    plannerNote: "The planner will get in touch with you to coordinate your travel and discounted bookings after you RSVP.",
 
     venueTitle: "We chose a \"different\" Goan experience",
     venueSubtitle: "Mercure Devaaya Resort, Divar Island",
     venue1: "Located on the serene \"Island of Love\"",
     venue2: "Unique Indo-Portuguese style architecture",
-    venue3: "Stunning waterfront location on the Mandovi River",
+    venue3: `Stunning waterfront location on the Mandovi River <i>(Rumors are we can see the otters
+                                chilling in the season)</i>`,
     venue4: "Away from traffic and pollution - perfect getaway",
     venue5: "5 minutes from historic Old Goa churches",
     venue6: "Beautiful landscaped gardens and riverfront venues",
-    venue7: "We really like the local cuisine...",
+    venue7: "We really like the local cuisine, in particular their Ros omelette and Chicken Cafreal.",
 
     whenInDivar: "When in Divar",
     activityIsland: "Island Exploration",
     activityIslandText: "Village walks on car-free Divar Island",
     activityWater: "Water Activities",
-    activityWaterText: "Fishing experiences by the resort...",
+    activityWaterText: "Fishing experiences by the resort, Mandovi River activities",
     activityNature: "Nature Walks",
     activityNatureText: "Cycling through coconut groves",
     activityHeritage: "Heritage",
@@ -65,7 +74,8 @@ const translations = {
     activitiesSubtitle: "Beyond our celebration, Goa offers endless adventures",
 
     travelTitle: "Make It a Grand Indian Adventure",
-    travelSubtitle: "Turn your trip to India into an unforgettable vacation...",
+    travelSubtitle: `Turn your trip to India into an unforgettable vacation. Consider
+                extending your stay with:`,
     flightInfo: "Easy flight connections from Delhi to Goa (2.5 hours)",
 
     footerSignature: "With love, Rajat & Olga",
@@ -133,11 +143,11 @@ const translations = {
   },
 
   ru: {
-    saveDate: "Запомните дату",
+    saveDate: "Забронируйте даты",
     coupleNames: "Раджат и Ольга",
-    greeting: "Привет, товарищ!",
+    greeting: "Намасте, товарищ!",
     location: "Гоа, Индия",
-    subtitle: "Не можем дождаться встречи с вами!",
+    subtitle: "С нетерпением ждём вас!",
 
     personalNoteTitle: "Личное послание",
     personalNote1: "Если вы это читаете, значит мы хотим, чтобы вы стали частью нашего праздника...",
@@ -147,7 +157,7 @@ const translations = {
     weddingDetailsTitle: "Детали свадьбы",
     weddingLead: "Гоа, конец января 2026.",
     when: "Когда",
-    whenDetails: "25 и 26 января 2026 года. Приезжайте раньше...",
+    whenDetails: "25 и 26 января 2026 года с возможностью раннего заезда 24го",
     where: "Где",
     whereDetails: "Mercure Devaaya Resort<br>остров Дивар, Гоа, Индия",
     travelLogistics: "Путешествие и логистика",
@@ -208,7 +218,7 @@ function applyTranslations(lang) {
   document.querySelectorAll("[data-i18n]").forEach(el => {
     const key = el.getAttribute("data-i18n");
     if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
+      el.innerHTML = translations[lang][key];
     }
   });
   //change goa-image and india-image id to use relevant assets
